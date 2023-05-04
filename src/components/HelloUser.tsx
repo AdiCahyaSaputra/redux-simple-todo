@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 const HelloUser: React.FC = () => {
   const username = useSelector(state => state.user.username)
 
+  console.log("HelloUser re rendered")
+
   return (
     <div>
       <h1>Hello {username}</h1>
