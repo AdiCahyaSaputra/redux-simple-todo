@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { editUser } from '../redux/userSlice'
+import { editUserAsync } from '../lib/fetch'
 
 const EditUser: React.FC = () => {
-  const username = useSelector(state => state.user.username)
+  const username = useSelector(state => state.user.userInfo.username)
   const [usernameField, setUsernameField] = useState(username)
 
   const dispatch = useDispatch()
 
   const submitHanlder: React.FormEventHandler = (e) => {
     e.preventDefault()
-    dispatch(editUser({ username: usernameField }))
+    editUserAsync(usernameField, dispatch)
   }
 
   return (

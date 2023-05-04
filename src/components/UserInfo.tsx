@@ -2,13 +2,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const UserInfo: React.FC = () => {
-  const username = useSelector(state => state.user.username)
+  const username = useSelector(state => state.user.userInfo.username)
+  const isLoading = useSelector(state => state.user.status) === 'loading'
 
   console.log("UserInfo re rendered")
 
   return (
     <div>
-      <h1>Your username is {username}</h1>
+      <h1>Your username is {isLoading ? '...' : username}</h1>
     </div>
   )
 }
