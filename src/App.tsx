@@ -1,17 +1,15 @@
 import React from 'react'
-import HelloUser from './components/HelloUser'
-import UserInfo from './components/UserInfo'
-import EditUser from './components/EditUser'
+import KanbanSection from './components/section/KanbanSection'
 
 const App: React.FC = () => {
   return (
-    <div>
+    <main className='bg'>
+      <div>
+        <h1>Simple Kanban Todo Tapi Pake Redux</h1>
 
-      <HelloUser/>
-      <EditUser/>
-      <UserInfo/>
-
-    </div>
+        <KanbanSection/>
+      </div>
+    </main>
   )
 }
 
