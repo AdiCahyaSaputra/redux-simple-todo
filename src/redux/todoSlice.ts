@@ -49,9 +49,27 @@ const todoSlice = createSlice({
 
       state.todos[type].splice(position, 1)
       state.todos[switchToType].push(todo)
+    },
+    editTodo: (state, action: {
+      payload: {
+        editTodoInfo: TodoPayload,
+        position: number,
+      }
+    }) => {
+      const { editTodoInfo, position } = action.payload
+
+      state.todos[editTodoInfo.type].splice(position, 1, editTodoInfo.todo)
+    },
+    deleteTodo: (state, action: {
+      payload: {
+        type: TodoPayload['type'],
+        position: number
+      }
+    }) => {
+      state.todos[action.payload.type].splice(action.payload.position, 1)
     }
   }
 })
 
-export const { addTodo, switchTodoType } = todoSlice.actions
+export const { addTodo, switchTodoType, editTodo, deleteTodo } = todoSlice.actions
 export const { reducer: todoReducer } = todoSlice

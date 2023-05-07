@@ -81,19 +81,19 @@ html {
   margin-top: 10px;
 }
 
-.kanban .card-wrapper .card > p {
+.kanban .card-wrapper .card .todo > p {
   font-size: 16px;
   font-weight: bold;
   color: var(--bg);
 }
 
-.kanban .card-wrapper .card > div {
+.kanban .card-wrapper .card > div:not(.todo) {
   display: flex;
   justify-content: end;
   gap: 5px;
 }
 
-.kanban .card-wrapper .card > div > button {
+.kanban .card-wrapper .card > div:not(.todo) > button {
   outline: none;
   border: none;
   margin-top: 10px;
@@ -103,7 +103,7 @@ html {
   cursor: pointer;
 }
 
-.kanban .card-wrapper .card > div > button:disabled {
+.kanban .card-wrapper .card > div:not(.todo) > button:disabled {
   display: none;
 }
 
@@ -114,8 +114,47 @@ html {
   font-weight: bold;
   color: white;
   padding: 2px 4px;
+  cursor: pointer;
 }
 
 .add-todo-input {
   color: var(--bg);
+}
+
+.edit-todo-btn {
+  outline: none;
+  border: none;
+  background-color: var(--green);
+  font-weight: bold;
+  color: white;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.edit-todo-input {
+  color: var(--bg);
+}
+
+.edit-mode-btn {
+  outline: none;
+  border: none;
+  background-color: var(--red);
+  font-weight: bold;
+  color: white;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.delete-todo-btn {
+  outline: none;
+  border: none;
+  background-color: red;
+  font-weight: bold;
+  color: white;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
